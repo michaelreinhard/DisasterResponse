@@ -12,7 +12,7 @@ python data/process_data.py data/disaster_messages.csv data/disaster_categories.
 ```
 Second, run the model, 'train_classifier.py', which will create the model and pickle it in a file called 'classifier.pkl'. In the command line from inside the 'DisasterResponse' folder run this code: 
 ```
-python model/train_classifier.py sqlite:///data/DisasterResponse.db model/classifier.pkl'
+python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 ```
 Third, and finally, run the app from your command line. From inside the 'DisasterResponse' folder run the code:
 ```
