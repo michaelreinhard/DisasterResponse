@@ -2,6 +2,8 @@
 
 This project seeks to classify tweets surrounding natural disasters into one of 36 categories. It also includes a web app that allows the user to classify new tweets into the existing categories. 
 
+This model uses the RandomForrestClassifier() embedded in the MultiClassOutput() function, both from sklearn. This suite allows for 
+
 ## Directions 
 
 Though there three files needed to run the app, the data preparation file, the model building file and the app running file itself. 
