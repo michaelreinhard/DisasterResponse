@@ -32,7 +32,7 @@ def load_data(database_filepath):
         category_names: list of target names
         )
     '''
-    engine = sqlalchemy.create_engine(database_filepath)
+    engine = sqlalchemy.create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('disaster', engine) 
     X = df.loc[:,'message']
     y = df.iloc[:,4:]
