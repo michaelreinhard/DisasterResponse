@@ -50,7 +50,7 @@ def clean_data(df):
 #changing second argument to database_filepath to match how it is
 #named below when the function is called. Originally 'database_filename'
 def save_data(df, database_filename):
-    engine = create_engine('sqlite:///data/DisasterResponse.db')
+    engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('disaster', engine, index=False) 
 
 
