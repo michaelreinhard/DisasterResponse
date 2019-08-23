@@ -4,7 +4,7 @@ don't want to start the file with a # mark.
 
 This project seeks to classify tweets surrounding natural disasters into one of 36 categories. It also includes a web app that allows the user to classify new tweets into the existing categories. 
 
-This model uses the RandomForrestClassifier() embedded in the MultiClassOutput() function, both from sklearn. This suite allows for 
+This model uses the RandomForrestClassifier() embedded in the MultiClassOutput() function, both from sklearn. This suite allows for the assignment of a tweet to more than one category. :
 
 ## Directions 
 
