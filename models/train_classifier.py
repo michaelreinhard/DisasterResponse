@@ -64,17 +64,28 @@ def tokenize(text):
 
 def build_model():
     '''
-    Creates pipeline for the model with the best parameters
-    discovered by GridSearch. 
+    Searches via GridSearch for the best model.
+    Input: (
+        none, 
+        )
+    Output: (
+        cv: GridSearchCV object) 
     '''
     pipeline = Pipeline([
-        ('vect', CountVectorizer(tokenizer=tokenize, ngram_range=(1,2))),
-        ('tfidf', TfidfTransformer(norm='l2', sublinear_tf=False, smooth_idf=False)),
-        ('clf', MultiOutputClassifier(RandomForestClassifier( n_estimators=250,\
-            min_samples_split=2, max_features='log2', n_jobs=-1)))
+        ('vect', CountVectorizer(tokenizer=tokenize)),
+        ('tfidf', TfidfTransformer()),
+        ('clf', MultiOutputClassifier(RandomForestClassifier(n_estimators=250,\
+            max_features='log2')))
     ])
     
-    return pipeline
+    param_grid = {
+        'vect__ngram_range': ((1, 1), (1, 2)),
+        'clf__estimator__min_samples_split': [2, 4]
+    }
+
+    cv = GridSearchCV(pipeline, param_grid=param_grid, n_jobs=1, cv=3)
+    
+    return cv
     
 def evaluate_model(model, X_test, y_test, category_names):
     '''
